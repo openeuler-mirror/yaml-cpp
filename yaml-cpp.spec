@@ -1,4 +1,4 @@
-Name:               yaml-cpp 
+Name:               yaml-cpp
 Version:            0.6.3
 Release:            1
 Summary:            A YAML parser and emitter in C++.
