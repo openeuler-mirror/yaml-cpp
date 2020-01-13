@@ -5,7 +5,7 @@ Summary:            A YAML parser and emitter in C++.
 License:            MIT
 URL:                https://github.com/jbeder/yaml-cpp
 Source0:            https://github.com/jbeder/yaml-cpp/archive/%{name}-%{version}.tar.gz
-Patch2:             CVE-2017-5950.patch
+Patch0001:          CVE-2017-5950.patch
 BuildRequires:      cmake gcc gcc-c++
 
 %description
