@@ -1,11 +1,10 @@
 Name:               yaml-cpp
-Version:            0.6.3
+Version:            0.7.0
 Release:            1
 Summary:            A YAML parser and emitter in C++.
 License:            MIT
 URL:                https://github.com/jbeder/yaml-cpp
 Source0:            https://github.com/jbeder/yaml-cpp/archive/%{name}-%{version}.tar.gz
-Patch0001:          CVE-2017-5950.patch
 BuildRequires:      cmake gcc gcc-c++
 
 %description
@@ -39,13 +38,13 @@ cd -
 %install
 cd build_dynamic_lib
 %make_install
-mv %{buildroot}%{_libdir}/cmake/yaml-cpp %{buildroot}%{_libdir}/cmake/yaml-cpp-dynamic
-mv %{buildroot}%{_libdir}/pkgconfig/yaml-cpp.pc %{buildroot}%{_libdir}/pkgconfig/yaml-cpp-dynamic.pc
+mv %{buildroot}%{_datadir}/cmake/yaml-cpp %{buildroot}%{_datadir}/cmake/yaml-cpp-dynamic
+mv %{buildroot}%{_datadir}/pkgconfig/yaml-cpp.pc %{buildroot}%{_datadir}/pkgconfig/yaml-cpp-dynamic.pc
 
 cd ../build_static_lib
 %make_install
-mv %{buildroot}%{_libdir}/cmake/yaml-cpp %{buildroot}%{_libdir}/cmake/yaml-cpp-static
-mv %{buildroot}%{_libdir}/pkgconfig/yaml-cpp.pc %{buildroot}%{_libdir}/pkgconfig/yaml-cpp-static.pc
+mv %{buildroot}%{_datadir}/cmake/yaml-cpp %{buildroot}%{_datadir}/cmake/yaml-cpp-static
+mv %{buildroot}%{_datadir}/pkgconfig/yaml-cpp.pc %{buildroot}%{_datadir}/pkgconfig/yaml-cpp-static.pc
 cd -
 
 %post
@@ -63,10 +62,15 @@ cd -
 %{_libdir}/*.so
 %{_libdir}/*.a
 %{_includedir}/yaml-cpp/
-%{_libdir}/cmake/
-%{_libdir}/pkgconfig/
+%{_datadir}/cmake/
+%{_datadir}/pkgconfig/
 
 
 %changelog
+* Thu Apr 14 2022 YukariChiba <i@0x7f.cc> - 0.7.0-1
+- Upgrade version to 0.7.0
+- Merged patch in upstream: #807
+- Modified install directory from upstream change #741
+
 * Mon Jan 6 2020 Senlin Xia<xiasenlin1@huawei.com> - 0.6.3-1
 - Package init
